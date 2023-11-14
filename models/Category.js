@@ -8,7 +8,7 @@ Category.init(
   {
     // define columns
     category_name: {
-      type: DataTypes.INTEGER
+      type: DataTypes.STRING
     }
   },
   {
