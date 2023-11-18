@@ -21,14 +21,16 @@ router.get('/:id', async (req, res) => {
   // find one category by its `id` value
   try {
     const categoryId = await Category.findByPk(req.params.id, {
-      include: [{
-        model: [Product]
-      }]
+      include: [
+         Product
+      ]
     })
     if (!categoryId) {
       res.status(404).json({ message: "No data on this location" })
       return;
     }
+
+    res.status(200).json(categoryId);
   } catch (err) {
     res.status(500).json(err.message)
   }
@@ -56,6 +58,7 @@ router.put('/:id', async (req, res) => {
     if (!categoryId) {
       res.status(400).json( {message: "No data found to update"})
     }
+    res.status(200).json(categoryId)
   } catch (err) {
     res.status(500).json(err.message)
   }
@@ -72,6 +75,7 @@ router.delete('/:id', async (req, res) => {
     if (!categoryId) {
       res.status(400).json({ message: "No data found to delete"})
     }
+    res.status(200).json(categoryId)
   } catch (err) {
     res.status(500).json(err.message)
   }

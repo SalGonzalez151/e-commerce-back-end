@@ -27,6 +27,8 @@ router.get('/:id', async (req, res) => {
     if (!productId) {
       res.status(404).json({message: "No data found on this ID"})
     }
+
+    res.status(200).json(productId);
   } catch (err) {
     res.status(500).json(err.message)
   }
@@ -121,6 +123,7 @@ router.delete('/:id', async (req, res) => {
     if (!productId) {
       res.status(404).json({ message: "Nothing to delete on this ID"})
     }
+    res.status(200).json(productId);
   } catch (err) {
     res.status(500).json(err.message)
   }
